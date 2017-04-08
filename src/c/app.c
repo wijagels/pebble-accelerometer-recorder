@@ -3,10 +3,10 @@
 static Window *s_main_window;
 static TextLayer *s_time_layer;
 static DataLoggingSessionRef s_session_ref;
+static char s_buffer[8];
 
 static void update_time(struct tm *restrict tick_time) {
     // Write the current hours and minutes into a buffer
-    static char s_buffer[8];
     strftime(s_buffer, sizeof(s_buffer),
              clock_is_24h_style() ? "%H:%M" : "%I:%M", tick_time);
 
